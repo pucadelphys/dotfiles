@@ -1,0 +1,6 @@
+sa|sausage02|around
+e|echo|around
+ma|maymays|around
+ra|rangercd|around
+1636215|1636215646241.gif|file
+|nsxiv.desktop|file

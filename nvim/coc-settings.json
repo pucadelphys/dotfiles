@@ -1,0 +1,14 @@
+{
+  "Lua.telemetry.enable": true,
+  "javascript.suggestionActions.enabled":false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+  "snippets.snipmate.enable":false,
+  "prettier.configPath": "/home/alex/.config/nvim/prettier.json",
+  "languageserver": {
+    "motoko": {
+      "module": "/home/alex/bin/dfx",
+      "args": ["_language-service", "dbank_backend"],
+      "filetypes": ["motoko"]
+    }
+  }
+}

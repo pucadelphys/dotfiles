@@ -1,0 +1,63 @@
+[cursor]
+vi_mode_style = "Block"
+
+[cursor.style]
+shape = "Beam"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "Hasklug Nerd Font"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "T"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "K"
+mode = "~Alt"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "J"
+mode = "~Alt"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "K"
+mode = "~Alt"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "J"
+mode = "~Alt"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "F1"
+mode = "~Search"
+
+[[keyboard.bindings]]
+action = "CopySelection"
+key = "Y"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Y"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "CopySelection"
+key = "C"
+mods = "Control|Shift"
+
+[window]
+opacity = 0.72

@@ -10,5 +10,16 @@ return{
     'vim-airline/vim-airline',
     'nvim-tree/nvim-tree.lua',
     'ShaiberAlon/snakemake-vim',
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
+    'dylanaraps/wal.vim',
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    -- Color Schemes
+    'rose-pine/neovim',
+    'sainnhe/everforest',
+    'folke/tokyonight.nvim',
+    'ray-x/aurora',
+    'scottmckendry/cyberdream.nvim',
+    'rebelot/kanagawa.nvim',
+    'neanias/everforest-nvim',
+    { dir = '~/.config/nvim/plugins/f9', dev = true },
+    { dir = '~/.config/nvim/plugins/setcolors', dev = true },
 }

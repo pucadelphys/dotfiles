@@ -8,8 +8,11 @@ lt () { [[ -z $1 ]] && ls -lcth | head || ls -lth $1 | head ;}
 mkcd () { mkdir -p "$1" && cd "$1" }
 .. () { [[ $1 =~ ^[2-9]$ ]] && for i in $(seq $1); do cd .. ; done || cd .. ;}
 ntfy () { curl -d "$1" ntfy.sh/Lpo5qdecKs5dxh5d >> /dev/null }
+pdf() {sioyek "${1}" &disown; exit;}
 yud () { yay; [[ "${?}" -eq 0 ]] && ntfy "Upgrade Complete" || ntfy "Upgrade Failed" ;}
 
+alias lf='lfub'
+alias la='ls -a'
 alias nn='TERM=xterm ncmpcpp'
 alias pgrep='pgrep -l'
 alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh'
@@ -35,10 +38,12 @@ alias view='nvim -R'
 alias vimdiff='nvim -d'
 alias vi=nvim
 alias wiki='nvim -c VimwikiIndex'
-alias xev='alacritty -e xev'
+#alias xev='alacritty -e xev'
 alias xiv='nsxiv'
 alias yt-dlp='noglob yt-dlp'
 alias sf='vi Downloads/torrents/stuff.txt'
+alias vis='echo -en "\033]0;Music Visualizer\a";TERM=xterm vis'
+alias xcp='xclip -sel clip'
 
 [[ -z ${SSH_TTY} ]] && (cat ~/.cache/wal/newseq &)
 
@@ -92,8 +97,8 @@ zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 
 # File manager function
-rcd() {
-    ranger --choosedir=/tmp/lastdir
+lcd() {
+    lf -last-dir-path /tmp/lastdir
     dir=$(cat /tmp/lastdir)
     cd "$dir"
 }
@@ -115,7 +120,7 @@ bindkey -a  "^[[3~"     delete-char
 bindkey -a  "^?"        backward-delete-char
 bindkey -a  "^["        vi-insert
 bindkey -s  "^h"        "^[k0"
-bindkey -s  "^d"        "^orcd\n"
+bindkey -s  "^d"        "^olcd\n"
 #bindkey -s  "^d"        "^[dT/xa"
 
 # Use vim keys in tab complete menu:

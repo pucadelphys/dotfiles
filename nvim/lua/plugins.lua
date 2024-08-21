@@ -1,4 +1,7 @@
 return{
+    'Eandrju/cellular-automaton.nvim',
+    'junegunn/goyo.vim',
+    'terrortylor/nvim-comment',
     'neovim/nvim-lspconfig',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -9,8 +12,9 @@ return{
     'jiangmiao/auto-pairs',
     'vim-airline/vim-airline',
     'nvim-tree/nvim-tree.lua',
-    'ShaiberAlon/snakemake-vim',
     'dylanaraps/wal.vim',
+    'vimwiki/vimwiki',
+    { 'ShaiberAlon/snakemake-vim', rtp = 'misc/vim/'},
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     -- Color Schemes
     'rose-pine/neovim',
@@ -20,6 +24,7 @@ return{
     'scottmckendry/cyberdream.nvim',
     'rebelot/kanagawa.nvim',
     'neanias/everforest-nvim',
+    -- Local Plugins
     { dir = '~/.config/nvim/plugins/f9', dev = true },
     { dir = '~/.config/nvim/plugins/setcolors', dev = true },
 }

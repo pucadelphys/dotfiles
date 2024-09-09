@@ -1,5 +1,6 @@
 local o = vim.opt
-
+vim.cmd("highlight Pmenu guibg=NONE")
+o.pumblend = 90
 o.clipboard = 'unnamedplus'
 o.autoindent = true
 o.breakindent = true
@@ -29,16 +30,18 @@ o.termguicolors = false
 o.colorcolumn = '80'
 o.undodir = vim.fn.expand('~') .. '/.config/nvim/undodir'
 o.fillchars:append({ eob = ' ' })
-o.listchars:append({ trail = '·', tab = '▸ ', leadmultispace = '│   '})
+o.listchars:append({ trail = '·', tab = '▸ ', leadmultispace = '│ ┆ '})
+vim.g.autosave = true
+vim.g.pastevar = true
+
+-- COLORS
+-- aurora colorscheme
+vim.g.aurora_italic = 1
+vim.g.aurora_transparent = 1
+vim.g.aurora_bold = 1
 
 vim.cmd.colorscheme('wal')
 
 for n = 1,6 do
-    vim.cmd.highlight({ "VimwikiHeader" .. n, "ctermfg=" .. n })
+    vim.api.nvim_set_hl(0, 'VimwikiHeader' .. n, {bold = true, ctermfg = n})
 end
-
-vim.api.nvim_create_autocmd({"BufEnter", "BufRead",}, {
-    pattern ={ "Snakefile", "*.rules", "*.snakefile", "*.snake", "*.smk" },
-    command = "set syntax=snakemake"
-})
-

@@ -16,7 +16,7 @@ if v:version < 700 || exists('loaded_setcolors') || &cp
 endif
 
 let loaded_setcolors = 1
-let s:mycolors = [ 'tokyonight-moon', 'vim', 'kanagawa', 'everforest', 'aurora', 'cyberdream', 'wal' ]  " colorscheme names that we use to set color
+let s:mycolors = [ 'tokyonight-moon', 'tokyonight-day', 'cyberdream', 'kanagawa', 'aurora', 'everforest', 'vim', 'wal' ]  " colorscheme names that we use to set color
 
 " Set list of color scheme names that we will use, except
 " argument 'now' actually changes the current color scheme.

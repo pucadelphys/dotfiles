@@ -290,6 +290,10 @@ globalkeys = gears.table.join(
               {description = "Increase Volume", group = "Launcher"}),
     awful.key({           }, "XF86AudioMute", function () awful.spawn("pamixer -t") end,
               {description = "Toggle volume", group = "Launcher"}),
+    awful.key({           }, "XF86MonBrightnessUp", function () awful.spawn("backlight -i 30") end,
+              {description = "Increase screen brightness", group = "Launcher"}),
+    awful.key({           }, "XF86MonBrightnessDown", function () awful.spawn("backlight -d 30") end,
+              {description = "Decrease screen brightness", group = "Launcher"}),
     awful.key({ modkey,           }, "n", function () awful.spawn("alacritty --class notesapp -e zsh -ic 'nvim -c Goyo -c startinsert /tmp/tempnote.md'") end,
               {description = "Open temporary note", group = "Launcher"}),
     awful.key({ modkey,  "Shift" }, "n", function () awful.spawn("alacritty -e zsh -ic 'nvim -c VimwikiIndex'") end,
@@ -523,6 +527,7 @@ awful.rules.rules = {
           "floatwin",
         },
         class = {
+          "Anki",
           "Arandr",
           "Dunst",
           "QjackCtl",

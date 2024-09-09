@@ -1,8 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
-
 cl () { cd "$1" && ls --color=auto ;}
 lt () { [[ -z $1 ]] && ls -lcth | head || ls -lth $1 | head ;}
 mkcd () { mkdir -p "$1" && cd "$1" }
@@ -79,11 +77,11 @@ bindkey '^[[B' history-substring-search-down
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         viins|main) 
-            PS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
-            echo -ne '\e[5 q';;
+            PS1=$HOST_PS1;;
+#            echo -ne '\e[5 q';;
         vicmd)
-            PS1='%F{white} %~ %F{green}i %F{cyan}%B%f%b '
-            echo -ne '\e[1 q';;
+            PS1='%F{white} %~ %F{green}i %F{cyan}%B%f%b ';;
+#            echo -ne '\e[1 q';;
     esac
 
     zle reset-prompt

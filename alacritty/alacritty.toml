@@ -60,4 +60,4 @@ key = "C"
 mods = "Control|Shift"
 
 [window]
-opacity = 0.56
+opacity = 1

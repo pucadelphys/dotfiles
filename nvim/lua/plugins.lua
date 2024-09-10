@@ -38,6 +38,9 @@ return{
         end
 }, -- Use the tree-sitter interface
     -- Color Schemes
+    'cocopon/iceberg.vim',
+    'wuelnerdotexe/vim-enfocado',
+    'olivercederborg/poimandres.nvim',
     'rose-pine/neovim',
     'folke/tokyonight.nvim',
     'ray-x/aurora',

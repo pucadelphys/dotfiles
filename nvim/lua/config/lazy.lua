@@ -22,9 +22,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local specs = {
-    import = "plugins"
+    { import = "plugins" },
 }
-if os.getenv('SSH_TTY') then
+if not os.getenv('SSH_TTY') then
     table.insert(specs, {import = "locals"})
 end
 

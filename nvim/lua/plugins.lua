@@ -24,7 +24,7 @@ return{
     'tpope/vim-surround', -- Modify surrounding pairs
     'vim-airline/vim-airline', -- Status/tabline
     'vimwiki/vimwiki', -- Personal wiki for Vim
-    { 'RRethy/vim-hexokinase', build = { 'make hexokinase' } }, -- Display colours in a file
+    -- { 'RRethy/vim-hexokinase', build = { 'make hexokinase' } }, -- Display colours in a file
     { 'ShaiberAlon/snakemake-vim', rtp = 'misc/vim/'}, --syntax highlighting for Snakemake
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
         config = function ()

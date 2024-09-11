@@ -130,7 +130,7 @@ bindkey -M  menuselect  'j'     vi-down-line-or-history
 bindkey -M  menuselect  '^['    send-break
 
 # Plugins
-source ~/.config/zsh/pass.zsh-completion 2>/dev/null
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source ~/.config/zsh/plugins/pass.zsh-completion 2>/dev/null
+source ~/.config/zsh/plugins/syntax_highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/plugins/history_substring/zsh-history-substring-search.plugin.zsh
+source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.plugin.zsh

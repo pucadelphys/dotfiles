@@ -1,4 +1,4 @@
-return{
+local tbl = {
    {
       "lervag/vimtex",
       lazy = false,     -- we don't want to lazy load VimTeX
@@ -8,7 +8,7 @@ return{
         vim.g.vimtex_view_method = "zathura"
       end
     },
-    'dylanaraps/wal.vim', -- Wal colorscheme
+    -- 'dylanaraps/wal.vim', -- Wal colorscheme
     'Eandrju/cellular-automaton.nvim', -- Generate a cellular automaton from buffer
     'hrsh7th/cmp-buffer', -- Source for buffer words
     'hrsh7th/cmp-cmdline', -- Source for vim's cmdline
@@ -48,5 +48,19 @@ return{
     'neanias/everforest-nvim',
     -- Local Plugins
     { dir = '~/.config/nvim/plugins/f9', dev = true },
+    { dir = '~/.config/nvim/plugins/wal', dev = true },
     -- { dir = '~/.config/nvim/plugins/setcolors', dev = true },
 }
+
+-- Plugins for PC
+local extras = {
+    { 'RRethy/vim-hexokinase', build = {'make hexokinase'} }, -- Display colours in a file
+}
+
+if not os.getenv('SSH_TTY') then
+    for _,t in pairs(extras) do
+        table.insert(tbl, t)
+    end
+end
+
+return tbl

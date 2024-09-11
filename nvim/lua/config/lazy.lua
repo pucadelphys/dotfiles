@@ -21,16 +21,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local specs = {
-    { import = "plugins" },
-}
-if not os.getenv('SSH_TTY') then
-    table.insert(specs, {import = "locals"})
-end
-
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = specs,
+    spec = {
+        { import = "plugins" },
+    },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "wal" } },

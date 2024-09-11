@@ -9,6 +9,7 @@ ntfy () { curl -d "$1" ntfy.sh/Lpo5qdecKs5dxh5d >> /dev/null }
 pdf() {sioyek "${1}" &disown; exit;}
 yud () { yay; [[ "${?}" -eq 0 ]] && ntfy "Upgrade Complete" || ntfy "Upgrade Failed" ;}
 
+alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.secrets/jupyter)"'
 alias lf='lfub'
 alias la='ls -a'
 alias nn='TERM=xterm ncmpcpp'

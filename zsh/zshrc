@@ -5,16 +5,20 @@ cl () { cd "$1" && ls --color=auto ;}
 lt () { [[ -z $1 ]] && ls -lcth | head || ls -lth $1 | head ;}
 mkcd () { mkdir -p "$1" && cd "$1" }
 .. () { [[ $1 =~ ^[2-9]$ ]] && for i in $(seq $1); do cd .. ; done || cd .. ;}
-ntfy () { curl -d "$1" ntfy.sh/Lpo5qdecKs5dxh5d >> /dev/null }
+ntfy () { curl -d "$1" "ntfy.sh/$(<~/.secrets/ntfy)" >> /dev/null }
 pdf() {sioyek "${1}" &disown; exit;}
 yud () { yay; [[ "${?}" -eq 0 ]] && ntfy "Upgrade Complete" || ntfy "Upgrade Failed" ;}
+
+
+MYPS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
+MYPS2="%F{white} %~ %F{green}i %F{cyan}%B%f%b "
 
 alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.secrets/jupyter)"'
 alias lf='lfub'
 alias la='ls -a'
 alias nn='TERM=xterm ncmpcpp'
 alias pgrep='pgrep -l'
-alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh'
+alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh;HOST_PS1="${HOST_PS1} "'
 alias chunkvim='nvim -u NONE -c "set nowrap"'
 alias du='du -h'
 alias grep='grep --color'
@@ -78,13 +82,10 @@ bindkey '^[[B' history-substring-search-down
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
         viins|main) 
-            PS1=$HOST_PS1;;
-#            echo -ne '\e[5 q';;
+            PS1="${HOST_PS1}${MYPS1}";;
         vicmd)
-            PS1='%F{white} %~ %F{green}i %F{cyan}%B%f%b ';;
-#            echo -ne '\e[1 q';;
+            PS1="${HOST_PS1}${MYPS2}";;
     esac
-
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -134,3 +135,19 @@ source ~/.config/zsh/plugins/pass.zsh-completion 2>/dev/null
 source ~/.config/zsh/plugins/syntax_highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/history_substring/zsh-history-substring-search.plugin.zsh
 source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.plugin.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+    # eval "$__conda_setup"
+# else
+    # if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        # . "/opt/miniconda3/etc/profile.d/conda.sh"
+    # else
+        # export PATH="/opt/miniconda3/bin:$PATH"
+    # fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+

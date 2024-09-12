@@ -11,7 +11,7 @@ function total_numbers()
     end
 end
 
-vim.g.comment_map = { c = '//', cpp = '//', go = '//', java = '//', javascript = '//', lua = '%-%-', scala = '//', php = '//', python = '#', ruby = '#', rust = '//', sh = '#', desktop = '#', fstab = '#', conf = '#', profile = '#', bashrc = '#', bash_profile = '#', mail = '>', eml = '>', bat = 'REM', ahk = ';', vim = '', tex = '%%', yaml = '#', julia = '#' }
+vim.g.comment_map = { c = '//', cpp = '//', go = '//', java = '//', javascript = '//', lua = '%-%-', scala = '//', php = '//', python = '#', ruby = '#', rust = '//', sh = '#', desktop = '#', fstab = '#', conf = '#', profile = '#', bashrc = '#', bash_profile = '#', mail = '>', eml = '>', bat = 'REM', ahk = ';', vim = '', tex = '%%', yaml = '#', julia = '#', zsh = '#', }
 
 vim.g.comment_mult = {
     html = { fst  = '<!--', lst = '--!>' },

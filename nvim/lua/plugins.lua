@@ -8,12 +8,14 @@ local tbl = {
         vim.g.vimtex_view_method = "zathura"
       end
     },
+    { 'R-nvim/R.nvim', lazy = false },
     -- 'dylanaraps/wal.vim', -- Wal colorscheme
     'Eandrju/cellular-automaton.nvim', -- Generate a cellular automaton from buffer
     'hrsh7th/cmp-buffer', -- Source for buffer words
     'hrsh7th/cmp-cmdline', -- Source for vim's cmdline
     'hrsh7th/cmp-nvim-lsp', -- Source for built-in lsp
     'hrsh7th/cmp-path', -- Source for filesystem paths
+    'R-nvim/cmp-r', -- Source for filesystem paths
     'hrsh7th/nvim-cmp', -- Completion engine
     'jiangmiao/auto-pairs', -- Insert surroundings in pairs
     'junegunn/goyo.vim', -- Distraction free writing
@@ -30,7 +32,7 @@ local tbl = {
         config = function ()
           local configs = require("nvim-treesitter.configs")
           configs.setup({
-              ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html", "python" },
+              ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "html", "python", "r", "markdown", "markdown_inline", "rnoweb", "yaml" },
               sync_install = false,
               highlight = { enable = true },
               indent = { enable = true },

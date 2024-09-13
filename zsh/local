@@ -1,0 +1,18 @@
+(cat ~/.cache/wal/newseq &)
+eval$(thefuck --alias)
+alias nn='TERM=xterm ncmpcpp'
+alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh;HOST_PS1="${HOST_PS1} "'
+alias se='sudoedit'
+alias streamlink='noglob streamlink'
+alias system='sudo systemctl'
+alias sy='sudo pacman -Sy'
+alias syu='sudo pacman -Syu'
+alias tobed='sudo pacman -Syu && sudo shutdown now'
+alias tsh='trash-put'
+alias tt='trash'
+alias xiv='nsxiv'
+alias sf='vi Downloads/torrents/stuff.txt'
+alias vis='echo -en "\033]0;Music Visualizer\a";TERM=xterm vis'
+alias xcp='xclip -sel clip'
+alias cat='bat --style=plain'
+alias tree='eza -T'

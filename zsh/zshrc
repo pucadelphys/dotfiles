@@ -4,22 +4,25 @@
 cl () { cd "$1" && ls --color=auto ;}
 lt () { [[ -z $1 ]] && ls -lcth | head || ls -lth $1 | head ;}
 mkcd () { mkdir -p "$1" && cd "$1" }
-.. () { [[ $1 =~ ^[2-9]$ ]] && for i in $(seq $1); do cd .. ; done || cd .. ;}
+.. () { [[ $1 =~ ^[2-9]$ ]] && for i in $(seq $1); do cd .. ; done || cd .. ; ls;}
 ntfy () { curl -d "$1" "ntfy.sh/$(<~/.secrets/ntfy)" >> /dev/null }
 pdf() {sioyek "${1}" &disown; exit;}
 yud () { yay; [[ "${?}" -eq 0 ]] && ntfy "Upgrade Complete" || ntfy "Upgrade Failed" ;}
 
+if [[ -z ${SSH_TTY} ]] then
+    source ~/.config/zsh/local
+else
+    source ~/.config/zsh/tty
+fi
 
 MYPS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
 MYPS2="%F{white} %~ %F{green}i %F{cyan}%B%f%b "
+# PS1=${MYPS1}
 
-alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.secrets/jupyter)"'
 alias lf='lfub'
 alias la='ls -a'
-alias nn='TERM=xterm ncmpcpp'
 alias pgrep='pgrep -l'
-alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh;HOST_PS1="${HOST_PS1} "'
-alias chunkvim='nvim -u NONE -c "set nowrap"'
+alias chunkers='nvim -u NONE -c "set nowrap"'
 alias du='du -h'
 alias grep='grep --color'
 alias ffmpeg='noglob ffmpeg -hide_banner'
@@ -27,28 +30,15 @@ alias ll='ls -lh'
 alias ls='ls --color=auto'
 alias mpv='noglob mpv'
 alias mv='mv -i'
-alias se='sudoedit'
-alias streamlink='noglob streamlink'
-alias system='sudo systemctl'
-alias sy='sudo pacman -Sy'
-alias syu='sudo pacman -Syu'
-alias tobed='sudo pacman -Syu && sudo shutdown now'
-alias tsh='trash-put'
-alias tree='tree -C --noreport'
 alias ttop='top | head'
-alias tt='trash'
 alias view='nvim -R'
 alias vimdiff='nvim -d'
 alias vi=nvim
 alias wiki='nvim -c VimwikiIndex'
 #alias xev='alacritty -e xev'
-alias xiv='nsxiv'
 alias yt-dlp='noglob yt-dlp'
-alias sf='vi Downloads/torrents/stuff.txt'
-alias vis='echo -en "\033]0;Music Visualizer\a";TERM=xterm vis'
-alias xcp='xclip -sel clip'
 
-[[ -z ${SSH_TTY} ]] && (cat ~/.cache/wal/newseq &)
+# [[ -z ${SSH_TTY} ]] && (cat ~/.cache/wal/newseq &)
 
 setopt incappendhistory
 setopt appendhistory
@@ -80,6 +70,7 @@ bindkey '^[[B' history-substring-search-down
 
 # Change prompt when vi or normal mode
 function zle-line-init zle-keymap-select {
+    [ -n ${CONDA_PROMPT_MODIFIER} ] && HOST_PS1="${CONDA_PROMPT_MODIFIER}${HOST_PS1}"
     case $KEYMAP in
         viins|main) 
             PS1="${HOST_PS1}${MYPS1}";;
@@ -132,9 +123,9 @@ bindkey -M  menuselect  '^['    send-break
 
 # Plugins
 source ~/.config/zsh/plugins/pass.zsh-completion 2>/dev/null
-source ~/.config/zsh/plugins/syntax_highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/plugins/history_substring/zsh-history-substring-search.plugin.zsh
-source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.plugin.zsh
+source ~/.config/zsh/plugins/syntax_highlighting/zsh-syntax-highlighting.plugin.zsh 2> /dev/null
+source ~/.config/zsh/plugins/history_substring/zsh-history-substring-search.plugin.zsh 2> /dev/null
+source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.plugin.zsh 2> /dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -150,4 +141,3 @@ source ~/.config/zsh/plugins/autosuggestions/zsh-autosuggestions.plugin.zsh
 # fi
 # unset __conda_setup
 # <<< conda initialize <<<
-

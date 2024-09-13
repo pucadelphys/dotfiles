@@ -42,8 +42,14 @@ cm("<Down>", "<C-n>")
 cm("<Up>", "<C-p>")
 
 nm("<F12>", "<cmd> lua setBg()<CR>")
+vim.keymap.set("n", "<C-.>", "gnn", {remap = true})
+vim.keymap.set("v", "<C-.>", "grn", {remap = true})
 
 vim.keymap.set('c', '<c-j>', function()
     return vim.fn.wildmenumode() == 0 and 'r' or 'k'
 end, { expr = true })
 
+
+vim.keymap.set('c', '<c-j>', function()
+  return vim.fn.pumvisible() == 1 and "<C-n>" or "<c-j>"
+end, { expr = true })

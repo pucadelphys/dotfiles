@@ -15,7 +15,7 @@ else
     source ~/.config/zsh/tty
 fi
 
-MYPS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
+MYPS1=$'%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
 MYPS2="%F{white} %~ %F{green}i %F{cyan}%B%f%b "
 
 alias lf='lfub'

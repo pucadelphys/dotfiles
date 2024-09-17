@@ -12,7 +12,7 @@ if [ -d "$HOME/.local/.juliaup/bin" ]; then
     PATH="$HOME/.local/.juliaup/bin:$PATH"
 fi
 
-EXPORT TERM=xterm-256color
+export TERM=xterm-256color
 
 HOST=$(hostname)
 

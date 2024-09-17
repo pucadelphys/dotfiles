@@ -1,2 +1,2 @@
-require("config.lazy")
-require("myconfig")
+require("config.vars")
+require("config")

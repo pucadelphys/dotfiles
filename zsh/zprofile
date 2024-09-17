@@ -18,11 +18,11 @@ HOST=$(hostname)
 
 case ${HOST} in
     keter)
-        HOST_PS1=$'┌┤\n';;
+        HOST_PS1=$'';;
     central)
-        HOST_PS1=$'┌┤󰚄\n';;
+        HOST_PS1=$'󰚄';;
     *)
-        HOST_PS1='';;
+        HOST_PS1='󰋜';;
 esac
 
 export HOST_PS1

@@ -1,4 +1,5 @@
-function total_numbers()
+-- TOGGLE LINE NUMBERS --
+function Total_numbers()
     local n = vim.opt.number:get()
     local rn = vim.opt.relativenumber:get()
     if (n or rn)
@@ -11,6 +12,7 @@ function total_numbers()
     end
 end
 
+-- TOGGLE COMMENTS --
 vim.g.comment_map = { c = '//', cpp = '//', go = '//', java = '//', javascript = '//', lua = '%-%-', scala = '//', php = '//', python = '#', ruby = '#', rust = '//', sh = '#', desktop = '#', fstab = '#', conf = '#', profile = '#', bashrc = '#', bash_profile = '#', mail = '>', eml = '>', bat = 'REM', ahk = ';', vim = '', tex = '%%', yaml = '#', julia = '#', zsh = '#', }
 
 vim.g.comment_mult = {
@@ -18,8 +20,7 @@ vim.g.comment_mult = {
     css = { fst = '/*', lst = '*/' }
 }
 
-
-function toggleComment()
+function ToggleComment()
     local fType = vim.bo.filetype
     local com = vim.g.comment_map[fType]
     if (not com) then
@@ -55,6 +56,7 @@ function toggleComment()
     end
 end
 
+-- CYCLE TROUGH COLORSCHEMES --
 vim.g.schemes = {
     { name = "wal", themes = { 'dark' }, airline = true },
     { name = "rose-pine", themes = { 'dark', 'light' }, airline = false },
@@ -73,7 +75,7 @@ for i,v in pairs(vim.g.schemes) do
 end
 vim.g.names = names
 
-changefunc = function(index, shade)
+Changefunc = function(index, shade)
     local prev = vim.g.schemes[index]
     local nextup = vim.g.schemes[index + 1]
     if (prev.themes[#(prev.themes)] ~= shade) then
@@ -87,7 +89,7 @@ changefunc = function(index, shade)
 end
 
 
-setBg = function()
+SetBg = function()
     local cScheme = vim.g.colors_name or ''
     local cTheme = vim.o.background
     local resTable
@@ -95,29 +97,33 @@ setBg = function()
     if vim.g.names[cScheme] then
         for col=1,#schemes do
             if (schemes[col].name == cScheme) then
-                resTable = changefunc(col, cTheme)
+                resTable = Changefunc(col, cTheme)
             end
         end
     end
-    vim.opt.background = resTable[2]
-    vim.cmd.colorscheme(resTable[1])
-    if resTable[3] then
-        vim.g["airline_theme"] = resTable[1]
-    end
     if ( resTable[1] == 'wal' ) then
         vim.opt.termguicolors = false
+        vim.cmd[[HexokinaseTurnOff]]
+        require('lualine').setup({ options = {theme = 'pywal'} })
+    else
+        vim.cmd[[HexokinaseTurnOn]]
+        require('lualine').setup({ options = {theme = 'auto'} })
     end
+    vim.cmd.colorscheme(resTable[1])
+    vim.opt.background = resTable[2]
     vim.g["colors_name"] = resTable[1]
     print(resTable[1] .. " " .. resTable[2])
 end
 
-autoSave = function()
+-- AUTOSAVE AFTER EDIT --
+AutoSave = function()
     if vim.g.autosave then
         vim.cmd[[silent! update]]
     end
 end
 
-customRegister = function()
+-- TOGGLE DEFAULT REGISTER --
+CustomRegister = function()
     if vim.g.pastevar then
         vim.keymap.set("v", "p", '"_dP')
         vim.keymap.set("v", "d", '"_d')
@@ -132,4 +138,3 @@ customRegister = function()
         print("Standard register settings")
     end
 end
-

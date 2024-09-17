@@ -1,7 +1,7 @@
 (cat ~/.cache/wal/newseq &)
 eval$(thefuck --alias)
 alias nn='TERM=xterm ncmpcpp'
-alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh;HOST_PS1="${HOST_PS1} "'
+alias anaconda='source /opt/miniconda3/etc/profile.d/conda.sh;MYPREFIX=" "'
 alias se='sudoedit'
 alias streamlink='noglob streamlink'
 alias system='sudo systemctl'
@@ -16,3 +16,4 @@ alias vis='echo -en "\033]0;Music Visualizer\a";TERM=xterm vis'
 alias xcp='xclip -sel clip'
 alias cat='bat --style=plain'
 alias tree='eza -T'
+alias treei='eza -T --icons=always'

@@ -19,7 +19,7 @@ let g:colors_name = 'wal'
 
 hi Whitespace ctermbg=NONE ctermfg=9
 hi Normal ctermbg=NONE ctermfg=7
-hi NonText ctermbg=NONE ctermfg=0
+hi NonText ctermbg=NONE ctermfg=9
 hi Comment ctermbg=NONE ctermfg=8 cterm=italic
 hi Conceal ctermbg=NONE
 hi Constant ctermbg=NONE ctermfg=3
@@ -64,7 +64,7 @@ hi DiffText ctermbg=NONE ctermfg=4
 hi IncSearch ctermbg=3 ctermfg=0
 hi Search ctermbg=3 ctermfg=0
 hi Directory ctermbg=NONE ctermfg=4
-hi MatchParen ctermbg=1 ctermfg=8
+hi MatchParen ctermbg=8 ctermfg=1
 hi ColorColumn ctermbg=4 ctermfg=0
 hi signColumn ctermbg=NONE ctermfg=4
 hi ErrorMsg ctermbg=NONE ctermfg=8
@@ -73,6 +73,7 @@ hi MoreMsg ctermbg=NONE ctermfg=2
 hi Question ctermbg=NONE ctermfg=4
 hi WarningMsg ctermbg=1 ctermfg=0
 hi Cursor ctermbg=NONE ctermfg=8
+hi lCursor ctermbg=NONE ctermfg=9
 hi Structure ctermbg=NONE ctermfg=5
 hi CursorColumn ctermbg=8 ctermfg=7
 hi ModeMsg ctermbg=NONE ctermfg=7

@@ -17,7 +17,6 @@ fi
 
 MYPS1='%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
 MYPS2="%F{white} %~ %F{green}i %F{cyan}%B%f%b "
-# PS1=${MYPS1}
 
 alias lf='lfub'
 alias la='ls -a'
@@ -38,7 +37,6 @@ alias wiki='nvim -c VimwikiIndex'
 #alias xev='alacritty -e xev'
 alias yt-dlp='noglob yt-dlp'
 
-# [[ -z ${SSH_TTY} ]] && (cat ~/.cache/wal/newseq &)
 
 setopt incappendhistory
 setopt appendhistory
@@ -70,12 +68,13 @@ bindkey '^[[B' history-substring-search-down
 
 # Change prompt when vi or normal mode
 function zle-line-init zle-keymap-select {
-    [ -n ${CONDA_PROMPT_MODIFIER} ] && HOST_PS1="${CONDA_PROMPT_MODIFIER}${HOST_PS1}"
+    # F_PREFIX="${CONDA_PROMPT_MODIFIER}${MYPREFIX}"
+    F_PREFIX="${MYPREFIX}"
     case $KEYMAP in
-        viins|main) 
-            PS1="${HOST_PS1}${MYPS1}";;
+        viins|main)
+            PS1="${F_PREFIX}${MYPS1}";;
         vicmd)
-            PS1="${HOST_PS1}${MYPS2}";;
+            PS1="${F_PREFIX}${MYPS2}";;
     esac
     zle reset-prompt
 }

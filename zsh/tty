@@ -1,3 +1,4 @@
 alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.secrets/jupyter)"'
-alias anaconda='source /home/abfemat/bioconda/bin/activate;HOST_PS1="${HOST_PS1} "'
+alias anaconda='source /home/abfemat/bioconda/bin/activate;MYPREFIX="${MYPREFIX} "'
 alias tree='tree -C --noreport'
+MYPREFIX="┌┤${HOST_PS1}\n└>"

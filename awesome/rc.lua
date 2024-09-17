@@ -167,8 +167,8 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "Tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "Tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "Tag"}),
+    -- awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+              -- {description = "go back", group = "Tag"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -185,6 +185,8 @@ globalkeys = gears.table.join(
         {description = "focus previous by index", group = "Client"}
     ),
     awful.key({           }, "Scroll_Lock", function () mybar.mymainmenu:toggle() end,
+              {description = "Show main menu", group = "Awesome"}),
+    awful.key({ modkey    }, "KP_F1", function () mybar.mymainmenu:toggle() end,
               {description = "Show main menu", group = "Awesome"}),
 
     -- Layout manipulation
@@ -294,7 +296,7 @@ globalkeys = gears.table.join(
               {description = "Increase screen brightness", group = "Launcher"}),
     awful.key({           }, "XF86MonBrightnessDown", function () awful.spawn("backlight -d 30") end,
               {description = "Decrease screen brightness", group = "Launcher"}),
-    awful.key({ modkey,           }, "n", function () awful.spawn("alacritty --class notesapp -e zsh -ic 'nvim -c Goyo -c startinsert /tmp/tempnote.md'") end,
+    awful.key({ modkey,           }, "n", function () awful.spawn("noteswin") end,
               {description = "Open temporary note", group = "Launcher"}),
     awful.key({ modkey,  "Shift" }, "n", function () awful.spawn("alacritty -e zsh -ic 'nvim -c VimwikiIndex'") end,
               {description = "Launch Vimwiki", group = "Launcher"}),

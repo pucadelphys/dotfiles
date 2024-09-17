@@ -21,6 +21,11 @@ nm('<C-j>', '<cmd>wincmd j<CR>')
 nm('<C-k>', '<cmd>wincmd k<CR>')
 nm('<C-l>', '<cmd>wincmd l<CR>')
 
+nm('<C-Left>', '<cmd>vertical resize -1<cr>')
+nm('<C-Right>', '<cmd>vertical resize +1<cr>')
+nm('<C-Up>', '<cmd>resize -1<cr>')
+nm('<C-Down>', '<cmd>resize +1<cr>')
+
 -- nm('<C-S-R>', '<cmd>wincmd h<CR>')
 nm('<C-S-H>', '<cmd>wincmd H<CR>')
 nm('<C-S-J>', '<cmd>wincmd J<CR>')

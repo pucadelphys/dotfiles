@@ -1,3 +1,4 @@
+require("config.vars")
 require("config.lazy")
 require("config.keys")
 require("config.options")
@@ -105,3 +106,5 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig").clangd.setup({
 	capabilities = capabilities,
 })
+
+require("cmp_r").setup({})

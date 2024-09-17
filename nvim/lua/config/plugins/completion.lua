@@ -13,7 +13,36 @@ return {
 	"hrsh7th/nvim-cmp", -- Completion engine
 	"kdheepak/cmp-latex-symbols", -- Add latex symbol support
 	"neovim/nvim-lspconfig", -- Default lsp config
-	"R-nvim/cmp-r", -- Source for filesystem paths
+	{ "R-nvim/cmp-r",
+    config = function ()
+        local opts = {
+            hook = {
+                on_filetype = function ()
+                    vim.api.nvim_buf_set_keymap(0,  "n", "<Enter>", "<Plug>RDSendLine", {})
+                    vim.api.nvim_buf_set_keymap(0,  "v", "<Enter>", "<Plug>RSendSelection", {})
+                end
+            },
+            R_args = { "--quiet", "--no-save" },
+            objbr_auto_start =  true,
+            objbr_place = "script, right",
+            objbr_w = 30,
+            rconsole_height = 6,
+            rconsole_width = 0,
+            disable_cmds = {
+                "RClearConsole",
+                "RCustomStart",
+                "RSPlot",
+                "RSaveClose"
+            },
+        }
+        if vim.env.R_AUTO_START == "true" then
+            opts.auto_start = "on startup"
+            opts.objbr_auto_start = true
+        end
+        require('r').setup(opts)
+    end,
+    lazy = false
+    }, -- Source for filesystem paths
 	"williamboman/mason.nvim",
 	{
 		"williamboman/mason-lspconfig.nvim",

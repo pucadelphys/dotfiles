@@ -33,7 +33,6 @@ o.listchars:append({ trail = '·', tab = '▸ ', leadmultispace = '│ ┆ ', ex
 o.showbreak = "└>" -- string to use at the start of wraped lines
 
 -- COLORS
-vim.cmd[[HexokinaseTurnOff]]
 
 vim.api.nvim_set_hl(0, 'Pmenu', {ctermbg='NONE'})
 for n = 1,6 do

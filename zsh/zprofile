@@ -21,13 +21,15 @@ case ${HOST} in
         HOST_PS1=$'';;
     central)
         HOST_PS1=$'󰚄';;
-    *)
+    archeopterix)
         HOST_PS1='󰋜';;
+    *)
+        HOST_PS1='';;
 esac
 
 export HOST_PS1
 
-[[ -n ${SSH_TTY} ]] && exit
+[[ -n ${SSH_TTY} ]] && return
 
 
 export HOST_PS1

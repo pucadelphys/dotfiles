@@ -5,6 +5,11 @@ require("config.options")
 require("config.autocmds")
 require("config.functions")
 
+if not os.getenv("SSH_TTY") then
+    require("config.locals")
+end
+
+
 local faces = {
 	"ʕ•ᴥ•ʔ", "(ᵔᴥᵔ)", "(¬_¬)", "(ʘ‿ʘ)", "( ⚆ _ ⚆ )", "ᕦ(ò_óˇ)ᕤ", "(~˘▾˘)~", "(¬‿¬)", "(>^.^<)",
 }

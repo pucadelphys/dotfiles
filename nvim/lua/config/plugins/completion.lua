@@ -1,11 +1,15 @@
 return {
-    { "rafamadriz/friendly-snippets", dependencies = LuaSnip },
+    "rafamadriz/friendly-snippets",
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp",
+        dependencies = {'saadparwaiz1/cmp_luasnip', "rafamadriz/friendly-snippets" },
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
 	},
 	"hrsh7th/cmp-buffer", -- Source for buffer words
 	"hrsh7th/cmp-cmdline", -- Source for vim's cmdline
@@ -25,7 +29,7 @@ return {
             },
             R_args = { "--quiet", "--no-save" },
             objbr_auto_start =  true,
-            objbr_place = "script, right",
+            objbr_place = "script,right",
             objbr_w = 30,
             rconsole_height = 6,
             rconsole_width = 0,

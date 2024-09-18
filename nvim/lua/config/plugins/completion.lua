@@ -1,4 +1,5 @@
 return {
+    { "rafamadriz/friendly-snippets", dependencies = LuaSnip },
 	{
 		"L3MON4D3/LuaSnip",
 		-- follow latest release.

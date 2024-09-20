@@ -18,6 +18,7 @@ fi
 MYPS1=$'%F{white} %~ %B%F{green}%F{magenta}%F{cyan}%f%b '
 MYPS2="%F{white} %~ %F{green}i %F{cyan}%B%f%b "
 
+alias r="nvim --cmd 'let R_auto_start = 1 | let R_objbr_auto_start = 1'"
 alias lf='lfub'
 alias la='ls -a'
 alias pgrep='pgrep -l'

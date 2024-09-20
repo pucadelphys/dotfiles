@@ -46,3 +46,11 @@ create("FileType", {
         vim.opt.spell = true
     end
 })
+
+create("FileType", {
+    pattern = {"r"},
+    callback = function()
+        vim.keymap.set("i", "<<", "<- ")
+        vim.keymap.set("i",  "||", "|> ")
+    end
+})

@@ -1,5 +1,4 @@
 -- local function im(l, r) return vim.keymap.set("i", l, r) end
-local function om(l, r) return vim.keymap.set("o", l, r) end
 local function vm(l, r) return vim.keymap.set("v", l, r) end
 local function nm(l, r) return vim.keymap.set("n", l, r) end
 local function cm(l, r) return vim.keymap.set("c", l, r) end
@@ -35,8 +34,8 @@ nm('<C-S-L>', '<cmd>wincmd L<CR>')
 nm('<leader>c', '<cmd>lua ToggleComment()<CR>')
 vm('<leader>c', '<cmd>lua ToggleComment()<CR><ESC>')
 
-vm('il', '<Esc><cmd>normal ^vg_<CR>')
-om('il', '<cmd>normal vil<CR>')
+vm('il', '<c-u>:norm!^vg_<CR>')
+vim.keymap.set('o', 'il', '<cmd>normal vil<cr>', {remap = true})
 
 nm("<leader>0", "<cmd>CellularAutomaton make_it_rain<CR>");
 nm("<leader>uu", "<cmd>Lazy update<CR>")

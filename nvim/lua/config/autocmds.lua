@@ -50,7 +50,8 @@ create("FileType", {
 create("FileType", {
     pattern = {"r"},
     callback = function()
-        vim.keymap.set("i", "<<", "<- ")
-        vim.keymap.set("i",  "||", "|> ")
+        vim.keymap.set("i", "<<", " <- ")
+        vim.keymap.set("i",  "||", " |> ")
+        vim.keymap.set("i",  ">>", " %>% ")
     end
 })

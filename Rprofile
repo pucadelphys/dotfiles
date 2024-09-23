@@ -15,3 +15,4 @@ colorout::setOutputColors(
     error    = c(1, NA, 6),
     verbose  = FALSE
 )
+# addPpattern("> ", 202)

@@ -16,7 +16,7 @@ local faces = {
 math.randomseed(os.time())
 print(faces[math.random(#faces)])
 
--- Set up nvim-cmp.
+-- Set up nvim-cmp
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 

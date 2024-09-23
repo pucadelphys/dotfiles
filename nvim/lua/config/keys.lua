@@ -1,57 +1,52 @@
--- local function im(l, r) return vim.keymap.set("i", l, r) end
-local function vm(l, r) return vim.keymap.set("v", l, r) end
-local function nm(l, r) return vim.keymap.set("n", l, r) end
-local function cm(l, r) return vim.keymap.set("c", l, r) end
+local set = vim.keymap.set
 
-vim.g.mapleader = ' '
+set("n", '<leader>p', '<cmd>lua CustomRegister()<CR>')
+set("n", '<leader>f', 'za')
+set("n", '<leader>h', '<cmd>set hlsearch!<CR>')
+set("n", '<leader>n', '<cmd>set relativenumber!<CR>')
+set("n", '<leader>N', '<cmd>lua Total_numbers()<CR>')
+set("n", '<leader>s', '<cmd>set spell!<CR>')
+set("n", '<leader>a', '<cmd>call AutoPairsToggle()<CR>')
+set("n", '<Up>', 'gk')
+set("n", '<Down>', 'gj')
 
-nm('<leader>p', '<cmd>lua CustomRegister()<CR>')
-nm('<leader>f', 'za')
-nm('<leader>h', '<cmd>set hlsearch!<CR>')
-nm('<leader>n', '<cmd>set relativenumber!<CR>')
-nm('<leader>N', '<cmd>lua Total_numbers()<CR>')
-nm('<leader>s', '<cmd>set spell!<CR>')
-nm('<leader>a', '<cmd>call AutoPairsToggle()<CR>')
-nm('<Up>', 'gk')
-nm('<Down>', 'gj')
+set("n", '<C-h>', '<cmd>wincmd h<CR>')
+set("n", '<C-j>', '<cmd>wincmd j<CR>')
+set("n", '<C-k>', '<cmd>wincmd k<CR>')
+set("n", '<C-l>', '<cmd>wincmd l<CR>')
 
-nm('<C-h>', '<cmd>wincmd h<CR>')
-nm('<C-j>', '<cmd>wincmd j<CR>')
-nm('<C-k>', '<cmd>wincmd k<CR>')
-nm('<C-l>', '<cmd>wincmd l<CR>')
+set({"i", "n"}, '<C-Left>', '<cmd>vertical resize -1<cr>')
+set({"i", "n"}, '<C-Right>', '<cmd>vertical resize +1<cr>')
+set({"i", "n"}, '<C-Up>', '<cmd>resize -1<cr>')
+set({"i", "n"}, '<C-Down>', '<cmd>resize +1<cr>')
 
-nm('<C-Left>', '<cmd>vertical resize -1<cr>')
-nm('<C-Right>', '<cmd>vertical resize +1<cr>')
-nm('<C-Up>', '<cmd>resize -1<cr>')
-nm('<C-Down>', '<cmd>resize +1<cr>')
+-- set("n", '<C-S-R>', '<cmd>wincmd h<CR>')
+set("n", '<C-S-H>', '<cmd>wincmd H<CR>')
+set("n", '<C-S-J>', '<cmd>wincmd J<CR>')
+set("n", '<C-S-K>', '<cmd>wincmd K<CR>')
+set("n", '<C-S-L>', '<cmd>wincmd L<CR>')
 
--- nm('<C-S-R>', '<cmd>wincmd h<CR>')
-nm('<C-S-H>', '<cmd>wincmd H<CR>')
-nm('<C-S-J>', '<cmd>wincmd J<CR>')
-nm('<C-S-K>', '<cmd>wincmd K<CR>')
-nm('<C-S-L>', '<cmd>wincmd L<CR>')
+set("n", '<leader>c', '<cmd>lua ToggleComment()<CR>')
+set("v", '<leader>c', '<cmd>lua ToggleComment()<CR><ESC>')
 
-nm('<leader>c', '<cmd>lua ToggleComment()<CR>')
-vm('<leader>c', '<cmd>lua ToggleComment()<CR><ESC>')
+set("v", 'il', '<c-u>:norm!^vg_<CR>')
+set('o', 'il', '<cmd>normal vil<cr>', {remap = true})
 
-vm('il', '<c-u>:norm!^vg_<CR>')
-vim.keymap.set('o', 'il', '<cmd>normal vil<cr>', {remap = true})
+set("n", "<leader>0", "<cmd>CellularAutomaton make_it_rain<CR>");
+set("n", "<leader>uu", "<cmd>Lazy update<CR>")
+set("n", "<leader>f", "<cmd>lua require('conform').format()<CR>")
 
-nm("<leader>0", "<cmd>CellularAutomaton make_it_rain<CR>");
-nm("<leader>uu", "<cmd>Lazy update<CR>")
-nm("<leader>f", "<cmd>lua require('conform').format()<CR>")
+set("c", "<Down>", "<C-n>")
+set("c", "<Up>", "<C-p>")
 
-cm("<Down>", "<C-n>")
-cm("<Up>", "<C-p>")
+set("n", "<leader>tt",  "<cmd>NvimTreeToggle<CR>")
+set("n", "<leader>tc",  "<cmd>NvimTreeCollapse<CR>")
 
-nm("<leader>tt",  "<cmd>NvimTreeToggle<CR>")
-nm("<leader>tc",  "<cmd>NvimTreeCollapse<CR>")
+set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
+set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 
-nm("<leader>ff", "<cmd>Telescope find_files<cr>")
-nm("<leader>fr", "<cmd>Telescope oldfiles<cr>")
-nm("<leader>fs", "<cmd>Telescope live_grep<cr>")
-nm("<leader>fc", "<cmd>Telescope grep_string<cr>")
-
-nm("<F12>", "<cmd> lua SetBg()<CR>")
-vim.keymap.set("n", "<C-.>", "gnn", {remap = true})
-vim.keymap.set("v", "<C-.>", "grn", {remap = true})
+set("n", "<F12>", "<cmd> lua SetBg()<CR>")
+set("n", "<C-.>", "gnn", {remap = true})
+set("v", "<C-.>", "grn", {remap = true})

@@ -17,3 +17,5 @@ alias xcp='xclip -sel clip'
 alias cat='bat --style=plain'
 alias tree='eza -T'
 alias treei='eza -T --icons=always'
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh

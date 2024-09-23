@@ -70,7 +70,7 @@ cmp.setup({
 		{
 			name = "latex_symbols",
 			option = {
-				strategy = 2, -- 0: mixed, 1: julia, 2: latex
+				strategy = 1, -- 0: mixed, 1: julia, 2: latex
 			},
 		},
 	}, {

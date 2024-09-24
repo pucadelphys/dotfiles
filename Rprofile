@@ -1,4 +1,5 @@
-colorout::setOutputColors(
+require(colorout)
+setOutputColors(
     index    = c(0, NA, 8),
     normal   = c(0, NA, 7),
     number   = c(0, NA, 2),

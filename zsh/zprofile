@@ -24,7 +24,7 @@ case ${HOST} in
     archeopterix)
         HOST_PS1='󰋜';;
     *)
-        HOST_PS1='';;
+        HOST_PS1='';;
 esac
 
 export HOST_PS1

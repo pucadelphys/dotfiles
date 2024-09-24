@@ -53,5 +53,6 @@ create("FileType", {
         vim.keymap.set("i", "<<", " <- ")
         vim.keymap.set("i",  "||", " |> ")
         vim.keymap.set("i",  ">>", " %>% ")
+        vim.g.r_indent_align_args = 0
     end
 })

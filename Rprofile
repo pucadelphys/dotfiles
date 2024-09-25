@@ -17,3 +17,9 @@ setOutputColors(
     verbose  = FALSE
 )
 # addPpattern("> ", 202)
+
+options(languageserver.formatting_style = function(options) {
+    styler::tidyverse_style(
+        indent_by = 4, start_comments_with_one_space = FALSE
+    )
+})

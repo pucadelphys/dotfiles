@@ -11,6 +11,9 @@ fi
 if [ -d "$HOME/.nvm/versions/node/v20.17.0/bin" ];then
     PATH="$HOME/.nvm/versions/node/v20.17.0/bin:$PATH"
 fi
+if [ -d "$HOME/software/libxml2" ];then
+    PATH="$HOME/software/libxml2:$PATH"
+fi
 
 export TERM=xterm-256color
 

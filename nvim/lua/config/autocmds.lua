@@ -50,9 +50,21 @@ create("FileType", {
 create("FileType", {
     pattern = {"r"},
     callback = function()
-        vim.keymap.set("i", "<<", " <- ")
-        vim.keymap.set("i",  "||", " |> ")
-        vim.keymap.set("i",  ">>", " %>% ")
+    vim.keymap.set("i", "<<", function ()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        local curline = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], false)[1]
+        return curline:sub(pos[2], pos[2]) == ' ' and '<- ' or ' <- '
+    end, {expr = true})
+    vim.keymap.set("i", "||", function ()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        local curline = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], false)[1]
+        return curline:sub(pos[2], pos[2]) == ' ' and '|> ' or ' |> '
+    end, {expr = true})
+    vim.keymap.set("i", ">>", function ()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        local curline = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], false)[1]
+        return curline:sub(pos[2], pos[2]) == ' ' and '%>% ' or ' %>% '
+    end, {expr = true})
         vim.g.r_indent_align_args = 0
     end
 })

@@ -84,6 +84,7 @@ return {
 				},
 			})
 			require("lspconfig").pyright.setup({})
+            -- require'lspconfig'.r_language_server.setup{}
 		end,
 	},
 }

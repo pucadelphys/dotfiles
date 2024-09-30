@@ -47,6 +47,7 @@ set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>")
 set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 
-set("n", "<F12>", "<cmd> lua SetBg()<CR>")
+set("n", "<F12>", "<cmd> lua SetBg(1)<CR>")
+set("n", "<F24>", "<cmd> lua SetBg(-1)<CR>")
 set("n", "<C-.>", "gnn", {remap = true})
 set("v", "<C-.>", "grn", {remap = true})

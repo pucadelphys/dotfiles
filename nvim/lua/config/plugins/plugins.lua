@@ -120,7 +120,7 @@ local extras = {
     { "RRethy/vim-hexokinase", build = { "make hexokinase" } }, -- Display colours in a file
 }
 
-if not os.getenv("SSH_TTY") then
+if not vim.g.localm then
     for _, t in pairs(extras) do
         table.insert(tbl, t)
     end

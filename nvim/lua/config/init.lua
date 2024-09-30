@@ -5,7 +5,7 @@ require("config.options")
 require("config.autocmds")
 require("config.functions")
 
-if not os.getenv("SSH_TTY") then
+if not vim.g.localm then
     require("config.locals")
 end
 

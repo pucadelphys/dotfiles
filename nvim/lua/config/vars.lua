@@ -1,3 +1,5 @@
+vim.g.localm = os.getenv("SSH_TTY")
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 

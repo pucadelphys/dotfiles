@@ -70,26 +70,33 @@ vim.g.schemes = {
 }
 
 local names = {}
-for i,v in pairs(vim.g.schemes) do
+for _,v in pairs(vim.g.schemes) do
     names[v.name] = v.themes
 end
 vim.g.names = names
 
-Changefunc = function(index, shade)
+Changefunc = function(index, shade, dir)
     local prev = vim.g.schemes[index]
-    local nextup = vim.g.schemes[index + 1]
-    if (prev.themes[#(prev.themes)] ~= shade) then
-        return {prev.name, prev.themes[#(prev.themes)], prev.airline}
+    local nextup = vim.g.schemes[index + dir ]
+    local dir = dir == 1
+    if (prev.themes[dir and #(prev.themes) or 1] ~= shade) then
+        return {prev.name,
+        prev.themes[dir and #(prev.themes) or 1],
+        prev.airline}
     elseif nextup then
-        return {nextup.name, nextup.themes[1], nextup.airline}
+        return {nextup.name,
+        nextup.themes[dir and 1 or #(nextup.themes)],
+        nextup.airline}
     else
-        local default = vim.g.schemes[1]
-        return {default.name, default.themes[1], default.airline}
+        local default = vim.g.schemes[dir and 1 or #(vim.g.schemes)]
+        return {default.name,
+        default.themes[dir and 1 or #(default.themes)],
+        default.airline}
     end
 end
 
 
-SetBg = function()
+SetBg = function(dir)
     local cScheme = vim.g.colors_name or ''
     local cTheme = vim.o.background
     local resTable
@@ -97,16 +104,20 @@ SetBg = function()
     if vim.g.names[cScheme] then
         for col=1,#schemes do
             if (schemes[col].name == cScheme) then
-                resTable = Changefunc(col, cTheme)
+                resTable = Changefunc(col, cTheme, dir)
             end
         end
     end
     if ( resTable[1] == 'wal' ) then
         vim.opt.termguicolors = false
-        vim.cmd[[HexokinaseTurnOff]]
+        if vim.g.localm then
+            vim.cmd[[HexokinaseTurnOff]]
+        end
         require('lualine').setup({ options = {theme = 'pywal'} })
     else
-        vim.cmd[[HexokinaseTurnOn]]
+        if vim.g.localm then
+            vim.cmd[[HexokinaseTurnOn]]
+        end
         require('lualine').setup({ options = {theme = 'auto'} })
     end
     vim.cmd.colorscheme(resTable[1])

@@ -1,4 +1,4 @@
-local localdir = "/home/alex/.config/nvim/lua/alex/plugins/"
+local localdir = vim.fn.expand('~') .. "/.config/nvim/lua/alex/plugins/"
 local tbl = {
     {
         "lervag/vimtex",

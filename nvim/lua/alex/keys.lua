@@ -29,7 +29,7 @@ set("n", '<C-S-L>', '<cmd>wincmd L<CR>')
 set("n", '<leader>c', '<cmd>lua ToggleComment()<CR>')
 set("v", '<leader>c', '<cmd>lua ToggleComment()<CR><ESC>')
 
-set("v", 'il', '<c-U>:norm!^vg_<CR>')
+set("v", 'il', ':<c-U>norm!^vg_<cr>')
 set('o', 'il', '<cmd>normal vil<cr>', {remap = true})
 
 set("n", "<leader>0", "<cmd>CellularAutomaton make_it_rain<CR>");

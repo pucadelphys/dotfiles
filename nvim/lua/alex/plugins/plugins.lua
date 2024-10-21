@@ -105,7 +105,7 @@ local tbl = {
 },
 "neanias/everforest-nvim",
 -- Local Plugins
-{ dir = localdir .. "f9", dev = true, name = 'wal' },
+{ dir = localdir .. "f9", dev = true },
 { dir = localdir .. "snakemake", dev = true }, --syntax highlighting for Snakemake
 {
     dir = localdir .. "wal",

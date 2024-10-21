@@ -44,6 +44,7 @@ create("FileType", {
     callback = function()
         vim.opt.showbreak = ''
         vim.opt.spell = true
+        vim.opt.keymap = "spanish_utf-8"
     end
 })
 

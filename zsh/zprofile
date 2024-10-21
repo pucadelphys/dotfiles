@@ -26,6 +26,8 @@ case ${HOST} in
         HOST_PS1=$'󰚄';;
     archeopterix)
         HOST_PS1='󰋜';;
+    fx-hd)
+        HOST_PS1='󰋜';;
     *)
         HOST_PS1='';;
 esac

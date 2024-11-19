@@ -117,12 +117,22 @@ local tbl = {
 }
 
 -- Plugins for PC
-local extras = {
+local localplugs = {
     { "RRethy/vim-hexokinase", build = { "make hexokinase" } }, -- Display colours in a file
+}
+local remoteplugs = {
+    {
+        "aserowy/tmux.nvim",
+        config = function() return require("tmux").setup() end
+    }
 }
 
 if not vim.g.locals then
-    for _, t in pairs(extras) do
+    for _, t in pairs(localplugs) do
+        table.insert(tbl, t)
+    end
+else
+    for _, t in pairs(remoteplugs) do
         table.insert(tbl, t)
     end
 end

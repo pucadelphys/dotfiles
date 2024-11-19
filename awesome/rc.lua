@@ -667,10 +667,10 @@ do
         "xset r rate 350 50",
         "xdotool mousemove 1640 540",
         "alacritty --config-file ~/.config/alacritty/start.toml --class startwin -e startfetch",
-        "syndaemon -tKRdi 0.8"
+        "syndaemon -tKRdi 0.8",
         -- "xsetwacom set 9 Area 0 0 21600 12150",
         -- "xsetwacom set 9 MapToOutput 1920x1080+1920+0",
-        -- "pkill -0 transmission-da || transmission-daemon",
+        "pkill -0 transmission-da || transmission-daemon",
     }
     for c=1, #cmds do
         awful.spawn.with_shell(cmds[c])

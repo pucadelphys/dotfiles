@@ -1,19 +1,33 @@
 #[[ -f ~/.zshrc ]] && . ~/.zshrc
 
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            [ -d "${1}" ] && PATH="$1${PATH:+:$PATH}"
+            ;;
+    esac
+}
 
-if [ -d "$HOME/.scripts" ]; then
-    PATH="$HOME/.scripts:$PATH"
-fi
+DIRS=(
+    $HOME/.local/bin \
+    $HOME/.scripts \
+    $HOME/.nvm/versions/node/v23.1.0/bin \
+    $HOME/.software/lua/bin \
+    $HOME/.software/luajit/bin \
+    $HOME/.software/nvim-linux64/bin \
+    $HOME/.software/libxml2 \
+    $HOME/.software/juliaup/bin \
+)
 
-if [ -d "$HOME/.nvm/versions/node/v20.17.0/bin" ];then
-    PATH="$HOME/.nvm/versions/node/v20.17.0/bin:$PATH"
-fi
-if [ -d "$HOME/software/libxml2" ];then
-    PATH="$HOME/software/libxml2:$PATH"
-fi
+for dir in "${DIRS[@]}"; do
+    append_path "${dir}"
+done
+
+unset -f append_path
+unset -v DIRS
+unset -v dir
 
 export TERM=xterm-256color
 
@@ -27,7 +41,7 @@ case ${HOST} in
     archeopterix)
         HOST_PS1='󰋜';;
     fx-hd)
-        HOST_PS1='󰋜';;
+        HOST_PS1='';;
     *)
         HOST_PS1='';;
 esac

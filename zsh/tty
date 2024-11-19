@@ -1,6 +1,11 @@
-alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.secrets/jupyter)"'
-alias anaconda='source /home/abfemat/bioconda/bin/activate;MYPREFIX="${MYPREFIX} "'
+alias jup='jupyter lab --no-browser --port=8080 --NotebookApp.token="$(<~/.ssh/secrets/jupyter)"'
+alias plo="julia --eval 'using Pluto;Pluto.run(Pluto.ServerSession(secret=\"W0UYRko9\", options=Pluto.Configuration.from_flat_kwargs(port=8080,launch_browser = false )))'"
+alias anaconda='source $HOME/miniconda3/bin/activate;MYPREFIX="${MYPREFIX} "'
 alias tree='tree -C --noreport'
 MYPREFIX="┌┤${HOST_PS1}"$'\n└>'
-source ~/software/fzf/shell/completion.zsh
-source ~/software/fzf/shell/key-bindings.zsh
+source ~/.software/fzf/shell/completion.zsh
+source ~/.software/fzf/shell/key-bindings.zsh
+if command -v tmux &> /dev/null && [[ ! "$TERM" =~ ^(screen|tmux)$ ]] && [ -z "$TMUX" ]; then
+    tmux ls &>/dev/null && tmux a || tmux
+fi
+

@@ -71,8 +71,8 @@ bindkey '^[[B' history-substring-search-down
 
 # Change prompt when vi or normal mode
 function zle-line-init zle-keymap-select {
-    # F_PREFIX="${CONDA_PROMPT_MODIFIER}${MYPREFIX}"
-    F_PREFIX="${MYPREFIX}"
+    F_PREFIX="${MYPREFIX}${CONDA_PROMPT_MODIFIER% }"
+    # F_PREFIX="${MYPREFIX}"
     case $KEYMAP in
         viins|main)
             PS1="${F_PREFIX}${MYPS1}";;

@@ -5,7 +5,7 @@ set("n", '<leader>f', 'za')
 set("n", '<leader>h', '<cmd>set hlsearch!<CR>')
 set("n", '<leader>n', '<cmd>set relativenumber!<CR>')
 set("n", '<leader>N', '<cmd>lua Total_numbers()<CR>')
-set("n", '<leader>s', '<cmd>set spell!<CR>')
+set("n", '<leader>sp', '<cmd>set spell!<CR>')
 set("n", '<leader>a', '<cmd>call AutoPairsToggle()<CR>')
 set("n", '<Up>', 'gk')
 set("n", '<Down>', 'gj')
@@ -28,6 +28,8 @@ set({"i", "n"}, '<C-Down>', '<cmd>resize +1<cr>')
 
 set("n", '<leader>c', '<cmd>lua ToggleComment()<CR>')
 set("v", '<leader>c', '<cmd>lua ToggleComment()<CR><ESC>')
+
+set("n", '<leader>sw', '<cmd>lua SaveToggle()<cr>')
 
 set("v", 'il', ':<c-U>norm!^vg_<cr>')
 set('o', 'il', '<cmd>normal vil<cr>', {remap = true})

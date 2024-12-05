@@ -127,6 +127,12 @@ SetBg = function(dir)
 end
 
 -- AUTOSAVE AFTER EDIT --
+SaveToggle = function()
+    vim.g.autosave = not vim.g.autosave
+    local state = vim.g.autosave and "on" or "off"
+    print("Autosave is " .. state)
+end
+
 AutoSave = function()
     if vim.g.autosave then
         vim.cmd[[silent! update]]

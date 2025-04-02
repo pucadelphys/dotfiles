@@ -1,5 +1,6 @@
 local set = vim.keymap.set
 
+set("i", '<C-R><C-R>', '<C-R>=system(\'')
 set("n", '<leader>p', '<cmd>lua CustomRegister()<CR>')
 set("n", '<leader>f', 'za')
 set("n", '<leader>h', '<cmd>set hlsearch!<CR>')

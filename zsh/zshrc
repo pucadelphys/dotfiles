@@ -5,7 +5,7 @@ cl () { cd "$1" && ls --color=auto ;}
 lt () { [[ -z $1 ]] && ls -lcth | head || ls -lth $1 | head ;}
 mkcd () { mkdir -p "$1" && cd "$1" }
 .. () { [[ $1 =~ ^[2-9]$ ]] && for i in $(seq $1); do cd .. ; done || cd .. ; ls;}
-ntfy () { curl -d "$1" "ntfy.sh/$(<~/.secrets/ntfy)" >> /dev/null }
+ntfy () { curl -d "$1" "ntfy.sh/$(<~/.ssh/secrets/ntfy)" >> /dev/null }
 pdf() {sioyek "${1}" &disown; exit;}
 yud () { yay; [[ "${?}" -eq 0 ]] && ntfy "Upgrade Complete" || ntfy "Upgrade Failed" ;}
 

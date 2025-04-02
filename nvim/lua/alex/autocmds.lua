@@ -74,5 +74,6 @@ create("FileType", {
             return curline:sub(pos[2], pos[2]) == ' ' and '%>% ' or ' %>% '
         end, {expr = true})
             vim.g.r_indent_align_args = 0
+            -- vim.g.R_csv_app = "tmux new-window tw %s --separator $'\t' --no-header"
     end
 })

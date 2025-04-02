@@ -27,6 +27,7 @@ return {
                     vim.api.nvim_buf_set_keymap(0,  "v", "<Enter>", "<Plug>RSendSelection", {})
                 end
             },
+            csv_app = "tmux new-window tw",
             R_args = { "--quiet", "--no-save" },
             objbr_auto_start =  true,
             objbr_place = "script,right",

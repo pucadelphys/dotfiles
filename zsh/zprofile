@@ -19,6 +19,7 @@ DIRS=(
     $HOME/.software/nvim-linux64/bin \
     $HOME/.software/libxml2 \
     $HOME/.software/juliaup/bin \
+    $HOME/.cargo/bin \
 )
 
 for dir in "${DIRS[@]}"; do
